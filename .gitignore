@@ -1,0 +1,45 @@
+# Байткод и кэш Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Виртуальные окружения
+.venv/
+venv/
+env/
+ENV/
+.python-version
+
+# Переменные окружения и секреты
+.env
+.env.*
+!.env.example
+
+# Сборка и дистрибутивы
+build/
+dist/
+*.egg-info/
+.eggs/
+*.egg
+wheels/
+
+# Тесты и покрытие кода
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# Линтеры и проверка типов
+.mypy_cache/
+.ruff_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Файлы IDE и ОС
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

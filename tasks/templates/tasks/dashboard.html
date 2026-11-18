@@ -1,0 +1,109 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life OS — Система прокачки</title>
+    <link rel="stylesheet" href="{% static 'tasks/css/style.css' %}">
+    <script src="{% static 'tasks/js/app.js' %}" defer></script>
+</head>
+<body>
+    <div class="app">
+        <aside class="sidebar">
+            <a href="/" class="logo">
+                <span class="logo-icon">L</span>
+                <span>LIFE<span class="accent">OS</span></span>
+            </a>
+
+            <p class="nav-label">МЕНЮ СИСТЕМЫ</p>
+
+            <nav class="navigation">
+                <a href="#" class="nav-item active">◈ <span>Обзор</span></a>
+                <a href="#tasks" class="nav-item">☷ <span>Мои квесты</span></a>
+                <a href="#progress" class="nav-item">◉ <span>Прогресс</span></a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <span class="status-dot"></span>
+                SYSTEM ONLINE
+            </div>
+        </aside>
+
+        <main class="main">
+            <header class="topbar">
+                <div>
+                    <p class="eyebrow">ПЕРСОНАЛЬНАЯ СИСТЕМА</p>
+                    <h1>Панель охотника</h1>
+                </div>
+                <div class="rank">РАНГ <strong>E</strong></div>
+            </header>
+
+            <section class="welcome">
+                <div>
+                    <p class="eyebrow">СИСТЕМА АКТИВИРОВАНА</p>
+                    <h2>Твой путь начинается <span class="accent">сегодня.</span></h2>
+                    <p class="muted">Выполняй задания. Получай опыт. Становись сильнее.</p>
+                </div>
+                <div class="level-orb">
+                    <span>LVL</span>
+                    <strong id="level">1</strong>
+                </div>
+            </section>
+
+            <section class="stats" id="progress">
+                <article class="stat-card">
+                    <span class="stat-label">УРОВЕНЬ</span>
+                    <strong id="level-stat">01</strong>
+                    <span class="muted">Текущий ранг</span>
+                </article>
+                <article class="stat-card">
+                    <span class="stat-label">ОПЫТ</span>
+                    <strong><span id="xp">0</span> <small>XP</small></strong>
+                    <div class="progress-track">
+                        <div class="progress-fill" id="xp-bar"></div>
+                    </div>
+                    <span class="muted" id="xp-caption">0 / 100 XP</span>
+                </article>
+                <article class="stat-card">
+                    <span class="stat-label">ВЫПОЛНЕНО</span>
+                    <strong id="completed">0</strong>
+                    <span class="muted">Завершённых квестов</span>
+                </article>
+            </section>
+
+            <section class="tasks-section" id="tasks">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">ТВОЯ МИССИЯ</p>
+                        <h2>Список квестов</h2>
+                    </div>
+                    <button class="primary-button" id="add-task">+ Новый квест</button>
+                </div>
+
+                <form id="task-form" class="task-form hidden">
+                    <input id="task-title" type="text"
+                           placeholder="Название нового квеста" maxlength="200" required>
+                    <input id="task-category" type="text"
+                           placeholder="Категория" value="Другое" maxlength="100">
+                    <select id="task-priority">
+                        <option value="low">Низкий приоритет</option>
+                        <option value="medium" selected>Средний приоритет</option>
+                        <option value="high">Высокий приоритет</option>
+                    </select>
+                    <input id="task-xp" type="number" min="0" max="10000"
+                           value="10" required>
+                    <button class="primary-button" type="submit">Создать</button>
+                </form>
+
+                <div class="task-list" id="task-list">
+                    <p class="muted">Загрузка заданий системы...</p>
+                </div>
+                <p id="message" class="message" role="status"></p>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
+
